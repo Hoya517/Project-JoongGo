@@ -8,7 +8,7 @@
 </head>
 <body>
 	<script>
-		location.fref = 'main.jsp';
+		location.href = 'main.jsp';
 	</script>
 </body>
 </html>
