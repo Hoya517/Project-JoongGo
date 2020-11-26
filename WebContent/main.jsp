@@ -64,6 +64,15 @@
 		</div>
 	</nav>
 	
+	<div class="container">
+		<div class="jumbotron">
+			<div class="container">
+				<h1>웹 사이트 소개</h1>
+				<p>데이터베이스 강의를 위한 유캠퍼스 제작 전  웹 사이트 제작</p>
+				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+			</div>
+		</div>
+	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
