@@ -96,6 +96,10 @@
 							<td colspan= "2"><%= bbs.getBbsDate().substring(0, 11) + bbs.getBbsDate().substring(11, 13) + " 시 " + bbs.getBbsDate().substring(14, 16) +" 분" %></td>
 						</tr>
 						<tr>
+							<td>첨부파일</td>
+							<td colspan= "2"><img src="http://localhost:8080/BBS/shopimage/<%= bbs.getFile() %>"></td>
+						</tr>
+						<tr>
 							<td>내용</td>
 							<td colspan= "2" style="min-height: 200px; text-align: left;"><%= bbs.getBbsContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>
 						</tr>

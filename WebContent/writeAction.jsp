@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.*"%>
 <%@ page import="bbs.BbsDAO" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="com.oreilly.servlet.MultipartRequest" %>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="bbs" class="bbs.Bbs" scope="page" />
 <jsp:setProperty name="bbs" property="bbsTitle" />
@@ -13,6 +15,23 @@
 <title>JSP 게시판 웹 사이트</title>
 </head>
 <body> 
+	<%
+		String saveFolder = "shopimage";
+		ServletContext scontext = getServletContext();
+		String fileurl = scontext.getRealPath(saveFolder);
+		String encType="utf-8";
+		int Maxsize = 5*1024*1024;
+	
+		MultipartRequest multi = null;
+		DefaultFileRenamePolicy policy = new DefaultFileRenamePolicy();
+		multi = new MultipartRequest(request, fileurl, Maxsize, encType, policy);
+		
+		Enumeration<?> files = multi.getFileNames();
+		String fname = (String) files.nextElement();
+		String filename = multi.getFilesystemName(fname);
+		String title = multi.getParameter("bbsTitle");
+		String content = multi.getParameter("bbsContent");
+	%>
 	<%
 		String userID = null;
 		if(session.getAttribute("userID") != null)
@@ -28,7 +47,7 @@
 		}	
 		else
 		{
-			if(bbs.getBbsTitle() == null || bbs.getBbsContent() == null )	// 글제목, 글내용 미작성시
+			if(title == null || content == null || filename == null)	// 글제목, 글내용 미작성시
 			{
 				PrintWriter script = response.getWriter();
 				script.println("<script>");
@@ -40,7 +59,7 @@
 			{	
 				// db에 데이터 넣어주기
 				BbsDAO bbsDAO = new BbsDAO();
-				int result = bbsDAO.write(bbs.getBbsTitle(), userID, bbs.getBbsContent());
+				int result = bbsDAO.write(title, userID, content, filename);
 				if (result == -1)
 				{
 					PrintWriter script = response.getWriter();

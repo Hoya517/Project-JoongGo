@@ -62,9 +62,9 @@
 	<div class="container">
 		<div class="jumbotron">
 			<div class="container">
-				<h1>웹 사이트 소개</h1>
-				<p>데이터베이스 강의를 위한 유캠퍼스 제작 전  웹 사이트 제작</p>
-				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기</a></p>
+				<h1>중고거래</h1>
+				<p>중고거래를 위한 게시판 사이트입니다.</p>
+				<p><a class="btn btn-primary btn-pull" href="#" role="button">자세히 알아보기(장식용)</a></p>
 			</div>
 		</div>
 	</div>

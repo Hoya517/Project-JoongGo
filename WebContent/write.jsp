@@ -61,7 +61,7 @@
 		
 		<div class="container">
 			<div class="row">
-				<form method="post" action="writeAction.jsp">
+				<form method="post" action="writeAction.jsp" enctype="multipart/form-data">
 					<table class="table table-striped" style="text-align:enter; border : 1px solid #dddddd;">
 						<thead>
 							<tr>
@@ -71,6 +71,9 @@
 						<tbody>
 							<tr>
 								<td><input type="text" class="form-control" placeholder="글 제목" name="bbsTitle" maxlength="50"></td>
+							</tr>
+							<tr>
+								<td><input class="form-control" type="file" name="file" id="formFile"></td>
 							</tr>
 							<tr>
 								<td><textarea class="form-control" placeholder="글 내용" name="bbsContent" maxlength="2480" style="height:350px;"></textarea></td>	
